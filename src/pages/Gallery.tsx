@@ -3,12 +3,11 @@ import { motion } from 'framer-motion';
 const Gallery = () => {
   // Placeholder gallery images - in a real scenario, these would be actual event photos
   const galleryImages = [
-    'https://images.unsplash.com/photo-1531306760863-7ff7c7f4f1fc?w=400',
-    'https://images.unsplash.com/photo-1519817650390-64a93db51149?w=400',
-    'https://images.unsplash.com/photo-1523447494698-60ea4621f2b4?w=400',
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-    'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400',
-    'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400',
+    '/assets/image4.jpeg?w=400',
+    '/assets/image5.jpeg?w=400',
+    '/assets/image6.jpeg?w=400',
+    '/assets/image7.jpeg?w=400',
+    '/assets/image8.jpeg?w=400',
   ];
 
   return (
