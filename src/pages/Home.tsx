@@ -37,10 +37,10 @@ const Home = () => {
   }, []);
 
   const sliderImages = [
-    '/src/assets/banner.png?w=800',
-    '/src/assets/image1.jpg?w=800',
-    '/src/assets/image2.jpg?w=800',
-    '/src/assets/image3.jpg?w=800',
+    '/assets/banner.png?w=800',
+    '/assets/image1.jpg?w=800',
+    '/assets/image2.jpg?w=800',
+    '/assets/image3.jpg?w=800',
   ];
 
   return (
@@ -234,7 +234,7 @@ const Home = () => {
           <motion.img
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            src="/src/assets/banner.png"
+            src="/assets/banner.png"
             alt="Eid Punormiloni Banner"
             className="w-full rounded-2xl shadow-2xl"
           />
