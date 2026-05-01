@@ -12,20 +12,20 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="min-h-screen pb-12 sm:pb-16">
+    <div className="min-h-screen pt-16 pb-12 sm:pb-16">
       {/* Hero Section */}
-      <section className="pt-16 pb-10 sm:py-12 bg-gradient-to-br from-green-800 to-green-900">
+      <section className="py-10 sm:py-12 bg-gradient-to-br from-green-800 to-green-900">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 sm:mb-4">
               ফটো গ্যালারি
             </h1>
             <p className="text-lg sm:text-xl text-green-200">
-              আমাদের পুনর্মিলনীর স্মৃতি
+              আমাদের স্মৃতি
             </p>
           </motion.div>
         </div>

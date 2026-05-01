@@ -1,8 +1,48 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Calendar, Users, Camera } from 'lucide-react';
+import ImageSlider from '../components/ImageSlider';
+import { ArrowRight, Calendar, Users, Camera, Clock } from 'lucide-react';
 
 const Home = () => {
+  const registrationCount = 53;
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const targetDate = new Date('2026-05-05T00:00:00');
+
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const difference = targetDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const sliderImages = [
+    '/src/assets/banner.png?w=800',
+    '/src/assets/image1.jpg?w=800',
+    '/src/assets/image2.jpg?w=800',
+    '/src/assets/image3.jpg?w=800',
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with School Background */}
@@ -10,7 +50,7 @@ const Home = () => {
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920"
-            alt="Holokhana School"
+            alt="Ranihati M.L. High School"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/70" />
@@ -35,7 +75,7 @@ const Home = () => {
             transition={{ delay: 0.3 }}
             className="text-lg sm:text-xl md:text-2xl text-yellow-200 mb-2"
           >
-            হলোখানা দ্বি-মুখী উচ্চ বিদ্যালয়
+            রাণীহাটি বহুমুখী উচ্চ বিদ্যালয়
           </motion.p>
           <motion.p
             initial={{ opacity: 0 }}
@@ -43,7 +83,7 @@ const Home = () => {
             transition={{ delay: 0.5 }}
             className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8"
           >
-            এসএসসি ব্যাচ - ২০১০
+            এসএসসি ব্যাচ - ২০১৬
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -72,6 +112,77 @@ const Home = () => {
         </motion.div>
       </section>
 
+      {/* Registration Count & Countdown Section */}
+      <section className="py-10 sm:py-14 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-6 sm:p-8 text-center shadow-xl"
+            >
+              <Users className="w-10 h-10 sm:w-12 sm:h-12 text-yellow-300 mx-auto mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">রেজিস্ট্রেশন সংখ্যা</h3>
+              <motion.p
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }}
+                className="text-5xl sm:text-6xl md:text-7xl font-bold text-yellow-300"
+              >
+                {registrationCount}
+              </motion.p>
+              <p className="text-white/80 mt-2">জন নিবন্ধিত</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1 }}
+              className="bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl p-6 sm:p-8 text-center shadow-xl"
+            >
+              <Clock className="w-10 h-10 sm:w-12 sm:h-12 text-white mx-auto mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">পুনর্মিলনী শেষ হওয়ার সময়</h3>
+              <div className="flex justify-center gap-2 sm:gap-4 mt-4">
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 min-w-[60px] sm:min-w-[80px]">
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">{timeLeft.days}</p>
+                  <p className="text-white/80 text-xs sm:text-sm">দিন</p>
+                </div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 min-w-[60px] sm:min-w-[80px]">
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">{timeLeft.hours}</p>
+                  <p className="text-white/80 text-xs sm:text-sm">ঘন্টা</p>
+                </div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 min-w-[60px] sm:min-w-[80px]">
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">{timeLeft.minutes}</p>
+                  <p className="text-white/80 text-xs sm:text-sm">মিনিট</p>
+                </div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 min-w-[60px] sm:min-w-[80px]">
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">{timeLeft.seconds}</p>
+                  <p className="text-white/80 text-xs sm:text-sm">সেকেন্ড</p>
+                </div>
+              </div>
+              <p className="text-white/80 mt-4 text-sm sm:text-base">৫ মে, ২০২৬</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Slider Section */}
+      <section className="py-10 sm:py-14 bg-gray-100">
+        <div className="max-w-5xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="shadow-2xl"
+          >
+            <div className="h-[300px] sm:h-[420px] md:h-[520px] lg:h-[620px]">
+              <ImageSlider
+                images={sliderImages}
+                autoSlideInterval={4000}
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Quick Info Section */}
       <section className="py-12 sm:py-20 bg-gradient-to-br from-green-800 to-green-900">
         <div className="max-w-6xl mx-auto px-4">
@@ -88,12 +199,12 @@ const Home = () => {
               {
                 icon: Calendar,
                 title: 'তারিখ',
-                desc: 'ঈদুল ফিতরের ২য় দিন, ২০২৬',
+                desc: 'ঈদ-উল-আযহার ৩য় দিন, ২০২৬',
               },
               {
                 icon: Users,
                 title: 'অংশগ্রহণকারী',
-                desc: 'এসএসসি ২০১০ ব্যাচের সকলে',
+                desc: 'এসএসসি ২০১৬ ব্যাচের সকলে',
               },
               {
                 icon: Camera,
@@ -123,7 +234,7 @@ const Home = () => {
           <motion.img
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            src="/src/assets/eid-banner.jpg"
+            src="/src/assets/banner.png"
             alt="Eid Punormiloni Banner"
             className="w-full rounded-2xl shadow-2xl"
           />

@@ -22,7 +22,7 @@ function App() {
         {/* Footer */}
         <footer className="bg-green-900 text-white py-6 sm:py-8">
           <div className="max-w-6xl mx-auto px-4 text-center">
-            <p className="mb-1 sm:mb-2 text-sm sm:text-base">© ২০২৬ হলোখানা দ্বি-মুখী উচ্চ বিদ্যালয় এসএসসি ব্যাচ-২০১০</p>
+            <p className="mb-1 sm:mb-2 text-sm sm:text-base">© Copyright ২০২৬ রাণীহাটি বহুমুখী উচ্চ বিদ্যালয় উচ্চ বিদ্যালয় এসএসসি ব্যাচ-২০১৬</p>
             <p className="text-green-300 text-xs sm:text-sm">ঈদ পুনর্মিলনী উদযাপন কমিটি</p>
           </div>
         </footer>
