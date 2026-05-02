@@ -5,7 +5,7 @@ import ImageSlider from '../components/ImageSlider';
 import { ArrowRight, Calendar, Users, Camera, Clock } from 'lucide-react';
 
 const Home = () => {
-  const registrationCount = 53;
+  const registrationCount = 59;
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -128,7 +128,7 @@ const Home = () => {
                 animate={{ scale: 1 }}
                 className="text-5xl sm:text-6xl md:text-7xl font-bold text-yellow-300"
               >
-                {registrationCount}
+                {registrationCount}+
               </motion.p>
               <p className="text-white/80 mt-2">জন নিবন্ধিত</p>
             </motion.div>
