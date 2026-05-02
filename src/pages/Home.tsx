@@ -140,7 +140,7 @@ const Home = () => {
               className="bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl p-6 sm:p-8 text-center shadow-xl"
             >
               <Clock className="w-10 h-10 sm:w-12 sm:h-12 text-white mx-auto mb-4" />
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">পুনর্মিলনী শেষ হওয়ার সময়</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">রেজিস্ট্রেশন শেষ হওয়ার সময়</h3>
               <div className="flex justify-center gap-2 sm:gap-4 mt-4">
                 <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 min-w-[60px] sm:min-w-[80px]">
                   <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">{timeLeft.days}</p>
